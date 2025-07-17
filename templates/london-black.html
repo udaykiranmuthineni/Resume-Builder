@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>London Resume Template</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      width: 210mm;
+      height: 297mm;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .resume {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    .sidebar {
+      background-color: #1c1c1c;
+      color: white;
+      width: 35%;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .name {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .title {
+      font-size: 15px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      color: #e1e1e1;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info, .skills, .social-links {
+      font-size: 13px;
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+
+    .social-links a {
+      color: #ddd;
+      text-decoration: none;
+      display: block;
+    }
+
+    .main {
+      width: 65%;
+      padding: 40px 30px;
+      background-color: #f9f9f9;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title-main {
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .entry {
+      margin-bottom: 15px;
+    }
+
+    .entry-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .entry-sub {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .entry-desc {
+      font-size: 13px;
+      margin-top: 5px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="resume">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div>
+        <div class="name">{{name}}</div>
+        <div class="title">{{role}}</div>
+
+        <div class="section-title">Contact</div>
+        <div class="contact-info">
+          📍 {{location}}<br>
+          📞 {{phone}}<br>
+          ✉️ {{email}}
+        </div>
+
+        <div class="section-title">Skills</div>
+        <div class="skills">{{skills}}</div>
+
+        <div class="section-title">Social</div>
+        <div class="social-links">
+          <a href="{{linkedin}}">🔗 LinkedIn</a>
+          <a href="{{github}}">💻 GitHub</a>
+          <a href="{{website}}">🌐 Website</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <div class="section">
+        <div class="section-title-main">Profile</div>
+        <div class="entry-desc">{{portfolio}}</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title-main">Experience</div>
+        {{experience}}
+      </div>
+
+      <div class="section">
+        <div class="section-title-main">Education</div>
+        {{education}}
+      </div>
+
+      <div class="section">
+        <div class="section-title-main">Projects</div>
+        {{projects}}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

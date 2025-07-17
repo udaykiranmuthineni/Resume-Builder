@@ -1,0 +1,417 @@
+/* ======= General Layout ======= */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+}
+
+h2, h3 {
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ======= Sidebar Section Styles ======= */
+.sidebar {
+  width: 240px;
+  background: #5f27cd;
+  color: #fff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sidebar h2 {
+  font-size: 22px;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  background: #8259db;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar li:hover {
+  background: #a88de6;
+}
+
+.sidebar li.active {
+  background: #ffffff;
+  color: #5f27cd;
+  font-weight: bold;
+}
+
+/* ======= Main Content Area ======= */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.panel {
+  padding: 25px 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ======= Resume 3-Column Layout ======= */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #d0d7e2;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #5f27cd;
+  box-shadow: 0 0 0 2px rgba(95, 39, 205, 0.2);
+  outline: none;
+}
+
+/* ======= Entry Block Styling (Project/Education/Experience) ======= */
+.entry-block {
+  position: relative; /* ✅ Must be here */
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #ffffff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= Delete Button ======= */
+.delete-icon-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.delete-icon-btn:hover {
+  background-color: #0d0b0a !important;
+}
+
+.delete-icon-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+.delete-icon-btn {
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  background: none;
+}
+
+/* ======= Resume Section Buttons and Lists ======= */
+#resume button:not(.delete-icon-btn) {
+  padding: 10px 14px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+#resume button:hover {
+  background-color: #1f2f40;
+}
+
+#education-list,
+#project-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+#education-list li,
+#project-list li {
+  padding: 6px 10px;
+  background: #f2f6fa;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#education-list button,
+#project-list button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ======= Utility Classes ======= */
+.center-text {
+  text-align: center;
+}
+
+.centered-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+/* ==============Template Style=============== */
+.template-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.template-preview {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.template-preview:hover {
+  transform: scale(1.02);
+}
+
+.template-preview h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.template-preview p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.template-preview button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #5f27cd;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.template-preview button:hover {
+  background-color: #4722a1;
+}
+
+.template-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.template-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.template-thumb {
+  width: 100%;
+  height:440px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.template-card h4 {
+  font-size: 16px;
+  margin: 12px 0 6px;
+  color: #333;
+}
+
+.template-card button {
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  background-color: #5f27cd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.template-card button:hover {
+  background-color: #4722a1;
+}
+
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 0;
+  margin: 0 auto;
+  background: white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.jd-analyzer-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* ===== Left Panel ===== */
+.jd-left {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#jd-input {
+  width: 100%;
+  height: 300px;
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.analyze-btn-wrapper {
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.analyze-btn-wrapper button {
+  padding: 10px 20px;
+  background-color: #4b6cb7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== Right Panel ===== */
+.jd-right {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
+  margin-top: 0px;
+  padding-top: 0;
+}
+
+.jd-right .box {
+  flex: 1;
+  min-height: 268px; 
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}
+
+.jd-text{
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+.skill-report-container {
+  width: 70%;
+}
+
+.skill-report-container .jd-text {
+  margin-bottom: 8px;
+}
+
+.match-box {
+  min-height: 320px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  margin-right: 20px;
+}
+

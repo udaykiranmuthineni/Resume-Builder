@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>InterviewPrep Suite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- ======= Sidebar ======= -->
+    <aside class="sidebar">
+      <h2>Prep Suite</h2>
+      <ul>
+        <li onclick="showSection('resume')">📄 Resume</li>
+        <li onclick="showSection('templates')">🧾 Templates</li>
+        <li onclick="showSection('jd')">📌 JD Analyzer</li>
+      </ul>
+    </aside>
+
+    <!-- ======= Main Content ======= -->
+    <main class="main-content">
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="panel">
+        <h2 class="section-title center-text">📄 Resume Builder</h2>
+        <!-- 👤 Basic Info -->
+        <div class="section-header">
+          <h3>👤 Basic Info</h3>
+        </div>
+
+        <div class="grid-3">
+          <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" /></div>
+          <div class="form-group"><label for="role">Target Role</label><input type="text" id="role" /></div>
+          <div class="form-group"><label for="location">Location</label><input type="text" id="location" /></div>
+        </div>
+
+        <div class="grid-3">
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" /></div>
+          <div class="form-group"><label for="phone">Phone</label><input type="text" id="phone" /></div>
+          <div class="form-group"><label for="portfolio">Portfolio URL</label><input type="text" id="portfolio" /></div>
+        </div>
+
+        <!-- 🛠 Skills -->
+        <div class="section-header">
+          <h3>🛠 Skills</h3>
+        </div>
+        <div class="form-group">
+          <label for="skills">Skills</label>
+          <input type="text" id="skills" placeholder="Comma-separated skills" />
+        </div>
+
+        <!-- 🚀 Projects -->
+        <div class="section-header">
+          <h3>🚀 Projects</h3>
+        </div>
+        <div id="projects-section"></div>
+        <button onclick="addProject()">➕ Add Project</button>
+
+        <!-- 🎓 Education -->
+        <div class="section-header">
+          <h3>🎓 Education</h3>
+        </div>
+        <div id="edu-section"></div>
+        <div class="edu-buttons">
+          <button onclick="addEducation()">➕ Add Education</button>
+        </div>
+
+        <!-- 💼 Experience -->
+        <div class="section-header">
+          <h3>💼 Experience</h3>
+        </div>
+        <div id="experience-section"></div>
+        <button onclick="addExperience()">➕ Add Experience</button>
+
+        <!-- 🌐 Social Links -->
+        <div class="section-header">
+          <h3>🌐 Social Links</h3>
+        </div>
+        <div class="grid-3">
+          <div class="form-group">
+            <label for="linkedin">LinkedIn</label>
+            <input type="text" id="linkedin" placeholder="https://linkedin.com/in/..." />
+          </div>
+          <div class="form-group">
+            <label for="github">GitHub</label>
+            <input type="text" id="github" placeholder="https://github.com/..." />
+          </div>
+          <div class="form-group">
+            <label for="twitter">Twitter</label>
+            <input type="text" id="twitter" placeholder="https://twitter.com/..." />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="website">Personal Website</label>
+          <input type="text" id="website" placeholder="https://yourdomain.com" />
+        </div>
+
+        <!-- 💾 Save Resume -->
+        <div class="centered-button">
+          <button onclick="saveResume()">💾 Save Resume</button>
+        </div>
+
+        <hr />
+        <h3>📄 Saved Resume (Demo)</h3>
+        <pre id="resume-output"></pre>
+      </section>
+
+      <!-- ======= Resume templates Section ======= -->
+      <section id="templates" class="panel hidden">
+        <h2 class="section-title center-text">📄 Resume Templates</h2>
+        <p class="center-text">Choose a professionally designed resume template below:</p>
+
+        <div class="template-gallery grid-2">
+          <!-- Template Card 1 -->
+          <div class="template-card">
+            <img src="assets/london-black.png" alt="London Black Template" class="template-thumb" />
+            <h4>London Black</h4>
+            <button onclick="selectTemplate('london-black')">Use Template</button>
+            <button onclick="downloadTemplate('london-black')">Download PDF</button>
+          </div>
+          <!-- Template Card 2 -->
+          <div class="template-card">
+            <img src="assets/london-color.png" alt="London Color Template" class="template-thumb" />
+            <h4>London Color</h4>
+            <button onclick="selectTemplate('london-color')">Use Template</button>
+            <button onclick="downloadTemplate('london-color')">Download PDF</button>
+          </div>
+          <!-- Template Card 3 -->
+          <div class="template-card">
+            <img src="assets/london-simple.png" alt="London Simple Template" class="template-thumb" />
+            <h4>London Simple</h4>
+            <button onclick="selectTemplate('london-simple')">Use Template</button>
+            <button onclick="downloadTemplate('london-simple')">Download PDF</button>
+          </div>
+      </section>
+      <!-- ======= JD Analyzer Section ======= -->
+      <section id="jd" class="panel hidden">
+        <h2 class="section-title center-text">📌 Job Description Analyzer.</h2>
+        <div class="jd-analyzer-container">
+          <!-- Left side (Textarea + Button) -->
+          <div class="jd-left">
+            <textarea id="jd-input" placeholder="Paste Job Description here..."></textarea>
+            <div class="analyze-btn-wrapper">
+              <button onclick="analyzeJD()">Analyze</button>
+              <input type="hidden" id="skills" value="">
+            </div>
+          </div>
+          <!-- Right side (Keywords only) -->
+          <div class="jd-right">
+            <div>
+              <h3 class="jd-text">Extracted Keywords:</h3>
+              <div class="box">
+                <ul id="jd-keywords"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Skill Match Report Section -->
+        <div class="skill-report-container">
+          <h3 class="jd-text">Skill Match Report:</h3>
+          <div class="box match-box">
+            <ul id="skill-match-report"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
+</body>
+</html>
