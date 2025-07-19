@@ -588,5 +588,15 @@ h2, h3 {
   .grid-2 {
     grid-template-columns: repeat(1, 1fr); /* 2 columns on medium screens */
   }
+
+#resume-output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #f7f7f7;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
 }
 
